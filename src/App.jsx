@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import ApiMovies from './ApiMovies';
+import ApiMovies from './components/ApiMovies';
 import MovieList from './components/MovieList';
 import FeatureMovies from './components/FeatureMovies';
+import Header from './components/Header';
 
 export default () => {
 
   const [movieList, setMovieList] = useState([]);
   const [featureData, setFeatureData] = useState(null);
+  const [blackHeader, setBlackHeader] = useState(false);
 
   useEffect(() => { 
     const loadAll = async () => {
@@ -24,8 +26,28 @@ export default () => {
     loadAll();
   }, []);
 
+  useEffect (() => {
+    const scrollListener = () => {
+        if(window.scrollY > 10) {
+            setBlackHeader(true);
+        } else {
+          setBlackHeader(false);
+        }
+    }
+
+    window.addEventListener('scroll', scrollListener);
+
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
+    }
+
+  }, []);
+
   return (
       <div className="page">
+
+        <Header black={blackHeader}/>
+
         {featureData && 
            <FeatureMovies item={featureData}/>
         }
