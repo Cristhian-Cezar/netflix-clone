@@ -11,3 +11,7 @@ body {
   background-color: #111;
   font-family: 'Roboto', sans-serif;
 }
+
+.list {
+  margin-top: -230px;
+}
