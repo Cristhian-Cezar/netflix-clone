@@ -1,5 +1,7 @@
 .movieRow {
       margin-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
 }
 
 .movieRow h2 {
@@ -13,8 +15,8 @@
 }
 
 .movieRow--list {
-      width: 90000px;
       display: flex;
+      transition: all ease 0.5s;
 }
 
 .movieRow--item {
@@ -30,4 +32,38 @@
 
 .movieRow--item img:hover {
       transform: scale(1);
+}
+
+.leftRight {
+      font-weight: bolder;
+      font-size: 50px;
+      background-color: rgba(0, 0, 0, 0.403);  
+      width: min-content;
+      z-index: 99;
+      position: absolute;
+      align-items: center;
+      padding: 5.2rem 0.4rem;
+      margin-top: 2.3rem;
+      cursor: pointer;
+      opacity: 0;
+      transition: all ease 0.5s;
+
+}
+
+.movieRow-left {
+      left: 0;
+}
+
+.movieRow-right {
+      right: 0;
+}
+
+.movieRow:hover .leftRight {
+      opacity: 1;
+}
+
+@media (max-width: 760px) {
+      .leftRight {
+            opacity: 1;
+      }
 }

@@ -84,3 +84,27 @@
     font-size: 18px;
     color: #999;
 }
+
+@media (max-width: 760px) {
+    .featured--title {
+        font-size: 30px;
+    }
+
+    .featured--info {
+        font-size: 14px;
+    }
+
+    .featured--description {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .featured--watch, .featured--myList {
+        font-size: 14px;
+    }
+
+    .featured--genres {
+        font-size: 14px;
+    }
+
+}

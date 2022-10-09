@@ -4,6 +4,7 @@ import ApiMovies from './components/ApiMovies';
 import MovieList from './components/MovieList';
 import FeatureMovies from './components/FeatureMovies';
 import Header from './components/Header';
+import NetflixLoadTime from './img/NetflixLoadTime.gif';
 
 export default () => {
 
@@ -48,14 +49,22 @@ export default () => {
 
         <Header black={blackHeader}/>
 
-        {featureData && 
-           <FeatureMovies item={featureData}/>
-        }
+        {featureData && <FeatureMovies item={featureData}/>}
           <section className='list'>
               {movieList && movieList.map((item, key) => (
                   <MovieList key={key} title={item.title} items={item.items}/>
                 ))}
           </section>
+          <footer>
+            Direitos de imagem para Netflix
+            Dados pegos do site themoviedb.org
+          </footer>
+          
+          {movieList.length <= 0 &&
+            <div className='loading'>
+              <img src={NetflixLoadTime}/>
+            </div>
+          }
         </div>
   )
 }
